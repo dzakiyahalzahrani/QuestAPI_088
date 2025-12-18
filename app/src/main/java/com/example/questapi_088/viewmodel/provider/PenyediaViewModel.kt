@@ -1,6 +1,6 @@
 package com.example.questapi_088.viewmodel.provider
 
-
+import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
@@ -9,13 +9,18 @@ import com.example.questapi_088.repositori.AplikasiDataSiswa
 import com.example.questapi_088.viewmodel.EntryViewModel
 import com.example.questapi_088.viewmodel.HomeViewModel
 
-fun CreationExtras.aplikasiDataSiswa(): AplikasiDataSiswa = (
-        this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as AplikasiDataSiswa
-        )
+fun CreationExtras.aplikasiDataSiswa(): AplikasiDataSiswa {
+    val app = this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as Application
+    return app as AplikasiDataSiswa
+}
 
 object PenyediaViewModel {
     val Factory = viewModelFactory {
-        initializer { HomeViewModel(aplikasiDataSiswa().container.repositoriDataSiswa) }
-        initializer { EntryViewModel(aplikasiDataSiswa().container.repositoriDataSiswa) }
+        initializer {
+            HomeViewModel(aplikasiDataSiswa().container.repositoriDataSiswa)
+        }
+        initializer {
+            EntryViewModel(aplikasiDataSiswa().container.repositoriDataSiswa)
+        }
     }
 }
