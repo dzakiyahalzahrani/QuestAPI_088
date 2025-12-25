@@ -27,8 +27,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.questapi_088.R
 import com.example.questapi_088.uicontroller.route.DestinasiEntry
 import com.example.questapi_088.modeldata.DetailSiswa
-import com.example.questapi_088.viewmodel.EntryViewModel
 import com.example.questapi_088.modeldata.UIStateSiswa
+import com.example.questapi_088.viewmodel.EntryViewModel
 import com.example.questapi_088.viewmodel.provider.PenyediaViewModel
 
 import kotlinx.coroutines.launch
